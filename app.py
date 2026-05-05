@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import plotly.express as px
+import json
 
 # ---------------------------
 # LOAD DATA
@@ -29,6 +31,53 @@ with col2:
 
 
 # ---------------------------
+# SECTION 1.2: Infrastructure Map (India)
+# ---------------------------
+# ---------------------------
+# SECTION 1.2: Infrastructure Map (India)
+# ---------------------------
+st.header("🗺️ Infrastructure Map (India)")
+
+# Load GeoJSON - using local file (complete, 36 states)
+with open("india_states.geojson") as f:
+    india_geojson = json.load(f)
+
+def categorize(score):
+    if score < 0.85:
+        return "Poor"
+    elif score < 0.95:
+        return "Average"
+    else:
+        return "Good"
+
+df["infra_category"] = df["infra_score"].apply(categorize)
+
+# Only one mismatch needed
+state_mapping = {
+    "Dadra & Nagar Haveli and Daman & Diu": "Dadra and Nagar Haveli and Daman and Diu"
+}
+
+df["state_mapped"] = df["India/State/UT"].replace(state_mapping)
+
+fig = px.choropleth(
+    df,
+    geojson=india_geojson,
+    featureidkey="properties.ST_NM",
+    locations="state_mapped",
+    color="infra_category",
+    hover_name="India/State/UT",
+    color_discrete_map={
+        "Poor": "red",
+        "Average": "yellow",
+        "Good": "green"
+    },
+    title="State-wise Infrastructure Quality"
+)
+fig.update_geos(fitbounds="locations", visible=False)
+
+st.plotly_chart(fig, use_container_width=True)
+
+# ---------------------------
 # SECTION 2: HIGH RISK STATES
 # ---------------------------
 st.header("🚨 High-Risk States (Need Attention)")
@@ -51,7 +100,7 @@ These regions need immediate attention.
 )
 
 # ---------------------------
-# SECTION 2.1: 👨‍🏫 Teacher Overload Risk (High PTR)
+# SECTION 2.1: Teacher Overload Risk (High PTR)
 # ---------------------------
 st.header("👨‍🏫 Teacher Overload Risk (High PTR)")
 
@@ -90,7 +139,7 @@ c3.metric("⚡ Electricity Access", f"{electricity:.2%}")
 
 with st.expander("📊 View Detailed Data"):
     st.dataframe(filtered_df, use_container_width=True)
-    
+
 
 # ---------------------------
 # SECTION 4: EXPLANATION
@@ -116,11 +165,7 @@ else:
 # ---------------------------
 # SECTION 4.1: Suggested Actions
 # ---------------------------
-
 st.subheader("📌 Suggested Actions")
-
-ptr = filtered_df["PTR"].values[0]
-infra = filtered_df["infra_score"].values[0]
 
 if infra < 0.85 and ptr > 25:
     st.write("🚨 Urgent Action Needed:")
@@ -142,7 +187,5 @@ else:
     st.write("- Maintain current standards")
     st.write("- Monitor regularly for consistency")
 
-# ---------------------------
-# SECTION 5: RAW DETAILS (OPTIONAL)
-# ---------------------------
 
+    
