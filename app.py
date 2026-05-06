@@ -8,6 +8,16 @@ import json
 # ---------------------------
 df = pd.read_csv("education_analysis_ready.csv")
 
+column_labels = {
+    "India/State/UT": "State / UT",
+    "infra_score": "Infrastructure Score",
+    "PTR": "Students per Teacher",
+    "electricity_ratio": "Electricity Access",
+    "toilet_ratio": "Toilet Access",
+    "water_ratio": "Water Access",
+    "computer_ratio": "Computer Access"
+}
+
 st.set_page_config(page_title="School Infrastructure Dashboard", layout="wide")
 
 st.title("📊 Government School Infrastructure Dashboard")
@@ -33,19 +43,20 @@ with col2:
 # ---------------------------
 # SECTION 1.2: Infrastructure Map (India)
 # ---------------------------
-# ---------------------------
-# SECTION 1.2: Infrastructure Map (India)
-# ---------------------------
+
 st.header("🗺️ Infrastructure Map (India)")
 
 # Load GeoJSON - using local file (complete, 36 states)
 with open("india_states.geojson") as f:
     india_geojson = json.load(f)
 
+q1 = df["infra_score"].quantile(0.33)
+q2 = df["infra_score"].quantile(0.66)
+
 def categorize(score):
-    if score < 0.85:
+    if score < q1:
         return "Poor"
-    elif score < 0.95:
+    elif score < q2:
         return "Average"
     else:
         return "Good"
@@ -78,14 +89,28 @@ fig.update_geos(fitbounds="locations", visible=False)
 st.plotly_chart(fig, use_container_width=True)
 
 # ---------------------------
+# SECTION 1.3: Top 5 States Needing Immediate Attention
+# ---------------------------
+
+st.header("📉 Lowest Infrastructure States (Top 5)")
+
+worst_states = df.sort_values(by="infra_score").head(5)
+
+st.dataframe(
+    worst_states[["India/State/UT", "infra_score", "PTR"]],
+    use_container_width=True
+)
+
+# ---------------------------
 # SECTION 2: HIGH RISK STATES
 # ---------------------------
-st.header("🚨 High-Risk States (Need Attention)")
+st.header("🚨 Critical Risk States (Infra + Teacher Issues)")
 
 high_risk = df[df["high_risk"] == True]
 
 st.dataframe(
-    high_risk[["India/State/UT", "infra_score", "PTR"]],
+    high_risk[["India/State/UT", "infra_score", "PTR"]]
+    .rename(columns=column_labels),
     use_container_width=True
 )
 
@@ -140,6 +165,44 @@ c3.metric("⚡ Electricity Access", f"{electricity:.2%}")
 with st.expander("📊 View Detailed Data"):
     st.dataframe(filtered_df, use_container_width=True)
 
+# ---------------------------
+# SECTION 3.1: INFRA BREAKDOWN
+# ---------------------------
+st.subheader("🔍 Infrastructure Breakdown")
+
+electricity = filtered_df["electricity_ratio"].values[0]
+toilet = filtered_df["toilet_ratio"].values[0]
+water = filtered_df["water_ratio"].values[0]
+computer = filtered_df["computer_ratio"].values[0]
+
+breakdown_df = pd.DataFrame({
+    "Metric": [
+        "Electricity Access",
+        "Toilet Access",
+        "Water Access",
+        "Computer Access"
+    ],
+    "Value": [
+        electricity,
+        toilet,
+        water,
+        computer
+    ]
+})
+
+st.bar_chart(breakdown_df.set_index("Metric"))
+
+# Explanation
+st.subheader("🧠 What is the main issue?")
+
+if electricity < 0.8:
+    st.write("⚠️ Electricity access is low. Schools may lack reliable power.")
+
+if toilet < 0.8:
+    st.write("⚠️ Toilet access is low. This can affect hygiene and attendance.")
+
+if electricity >= 0.8 and toilet >= 0.8:
+    st.write("✅ Basic infrastructure is reasonably available.")
 
 # ---------------------------
 # SECTION 4: EXPLANATION
