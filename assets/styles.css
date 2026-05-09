@@ -1,0 +1,85 @@
+/* App Background */
+.stApp {
+    background-color: #0E1117;
+    color: white;
+}
+
+/* Section Titles */
+.sec-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+/* Metric Cards */
+.metric-card {
+    background: #161B22;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #2D333B;
+    text-align: center;
+}
+
+.metric-title {
+    font-size: 14px;
+    color: #9CA3AF;
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;
+}
+
+.metric-sub {
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+/* Diagnosis Cards */
+.diag-card {
+    background: #161B22;
+    border: 1px solid #2D333B;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 14px;
+}
+
+.diag-card h4 {
+    margin-bottom: 8px;
+    color: white;
+}
+
+.diag-card p {
+    color: #D1D5DB;
+    line-height: 1.6;
+}
+
+/* Action Items */
+.action-item {
+    background: #111827;
+    border-left: 4px solid #4F8EF7;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    color: #E5E7EB;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #111827;
+}
+
+/* DataFrames */
+[data-testid="stDataFrame"] {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Plotly Charts */
+.js-plotly-plot {
+    border-radius: 12px;
+}
