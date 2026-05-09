@@ -4,11 +4,11 @@ from utils.config import *
 from utils.helpers import *
 from utils.data_loader import load_data
 
-from pages.overview import render_overview
-from pages.india_map import render_india_map
-from pages.risk_states import render_risk_states
-from pages.state_deepdive import render_state_deepdive
-from pages.compare_states import render_compare_states
+from sections.overview import render_overview
+from sections.india_map import render_india_map
+from sections.risk_states import render_risk_states
+from sections.state_deepdive import render_state_deepdive
+from sections.compare_states import render_compare_states
 
 
 # ─────────────────────────────────────────────────────────────────────────────
