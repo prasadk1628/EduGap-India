@@ -210,21 +210,25 @@ States with weak water and electricity access consistently perform poorly in ove
 ## 📸 Dashboard Preview
 
 ### 📊 National Overview
+![]()
 ![Overview](images/overview.png)
 
 ---
 
 ### 🗺️ Infrastructure Map
+![]()
 ![India Map](images/map.png)
 
 ---
 
 ### 🔎 State Deep Dive
+![]()
 ![Deep Dive](images/deepdive.png)
 
 ---
 
 ### ⚖️ Compare States
+![]()
 ![Compare](images/compare.png)
 
 ---
