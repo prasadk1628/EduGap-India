@@ -2,6 +2,11 @@
 
 > *Educational infrastructure gaps are not just statistics — they directly influence learning quality, accessibility, and long-term development outcomes.*
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20App-brightgreen)](https://infraviz-vaih8h4xdd5s7kyzcyx8gm.streamlit.app/)
+[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit&logoColor=white)](https://infraviz-vaih8h4xdd5s7kyzcyx8gm.streamlit.app/)
+
 InfraViz India is an interactive analytics dashboard built using real UDISE+ government education data to analyze school infrastructure quality across Indian states and union territories.
 
 The platform identifies:
