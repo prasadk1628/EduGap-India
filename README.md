@@ -146,12 +146,14 @@ This helps surface regions that need urgent educational attention.
 
 ## 📸 Dashboard Preview
 
-Add screenshots here once exported:
-
-* National Overview
-* Infrastructure Map
-* State Deep Dive
-* Compare States
+### National Overview
+![National Overview](images/overview.png)
+### Infrastructure Map
+![Infrastructure Map](images/map.png)
+### State Deep Dive
+![State Deep Dive](images/deepdive.png)
+### Compare States
+![Compare States](images/compare.png)
 
 ---
 
@@ -210,5 +212,4 @@ streamlit run app.py
 **Vara Prasad K**
 Aspiring Data Analyst | Python · SQL · Streamlit
 
-GitHub: https://github.com/prasadk1628
-LinkedIn: https://www.linkedin.com/in/vara-prasad-kavali/
+[GitHub](https://github.com/prasadk1628) · [LinkedIn](https://www.linkedin.com/in/vara-prasad-kavali/)
