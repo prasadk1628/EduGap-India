@@ -1,156 +1,100 @@
 # 🏫 InfraViz India — Government School Infrastructure Intelligence Dashboard
 
-> *Educational infrastructure gaps are not just statistics — they directly influence learning quality, accessibility, and long-term development outcomes.*
+> **An interactive analytics dashboard that reveals infrastructure gaps, teacher overload risks, and facility disparities across Indian states using UDISE+ data.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20App-brightgreen)](https://infraviz-vaih8h4xdd5s7kyzcyx8gm.streamlit.app/)
-[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10-3776AB?logo=python&logoColor=white)](https://python.org)
-[![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit&logoColor=white)](https://infraviz-vaih8h4xdd5s7kyzcyx8gm.streamlit.app/)
+InfraViz India is an end-to-end education analytics project built on **UDISE+ 2023–24** data to compare school infrastructure quality across Indian states and union territories.
 
-InfraViz India is an interactive analytics dashboard built using real UDISE+ government education data to analyze school infrastructure quality across Indian states and union territories.
+It helps answer questions such as:
 
-The platform identifies:
-- infrastructure-deficient regions
-- teacher overload risks
-- facility availability gaps
-- high-priority education zones
+* Which states have the weakest infrastructure coverage?
+* Where are teacher overload risks highest?
+* Which facilities are most inconsistent across regions?
+* Which states should receive priority intervention?
 
-through interactive visual analytics and state-level comparisons.
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)](https://github.com/prasadk1628/EduGap-India)
+[![Live Dashboard](https://img.shields.io/badge/Streamlit-Live%20Dashboard-brightgreen)](#)
 
 ---
 
 ## 📌 Problem Statement
 
-India operates one of the largest public education systems in the world.
+India’s public school system is large and diverse, but infrastructure quality is not evenly distributed.
 
-However, infrastructure quality across schools remains uneven:
-- some regions lack functional electricity
-- some schools operate without proper sanitation
-- teacher overload affects learning quality
-- digital infrastructure remains inconsistent
+Some schools still face gaps in:
 
-Raw education datasets alone do not clearly reveal:
-- which states are struggling most
-- which facilities are critically lacking
-- where intervention is urgently needed
-- how infrastructure compares nationally
+* electricity access
+* sanitation facilities
+* drinking water availability
+* computer access
+* teacher availability
 
-This project transforms raw UDISE+ education data into an interactive decision-support dashboard for infrastructure analysis.
+Raw education data alone is difficult to interpret at scale. InfraViz India transforms it into an interactive dashboard for identifying infrastructure weaknesses and priority states.
 
 ---
 
 ## 🎯 Project Objectives
 
-The dashboard was designed to:
+This project was designed to:
 
-- Analyze school infrastructure quality across India
-- Identify high-risk states with infrastructure and teacher issues
-- Measure facility availability ratios
-- Compare states across key education metrics
-- Provide interactive state-level deep-dive analysis
-- Support data-driven educational insights
-
----
-
-## 🚀 Key Features
-
-### 🗺️ National Infrastructure Map
-Interactive India choropleth map showing:
-- Good infrastructure states
-- Average infrastructure states
-- Poor infrastructure states
-
----
-
-### 🚨 Risk Detection System
-Automatically identifies:
-- infrastructure risk states
-- teacher overload regions
-- critical intervention zones
-
-based on threshold-driven logic.
-
----
-
-### 🔎 State Deep Dive
-Detailed analysis for each state:
-- infrastructure score
-- student-teacher ratio
-- facility availability
-- infrastructure diagnosis
-- suggested actions
-
----
-
-### ⚖️ State Comparison Engine
-Compare multiple states using:
-- radar charts
-- grouped comparisons
-- facility metrics
-- infrastructure indicators
-
----
-
-### 📊 Facility Analytics
-Tracks availability of:
-- Electricity
-- Toilets
-- Drinking Water
-- Computer Facilities
-
-across Indian schools.
+* analyze school infrastructure quality across India
+* identify high-risk states with infrastructure and teacher issues
+* compare states across key education indicators
+* measure facility availability ratios
+* support data-driven education planning
+* provide an interactive state-level deep dive
 
 ---
 
 ## 📂 Dataset
 
-| Property | Detail |
-|---|---|
-| Dataset | UDISE+ 2023–24 |
-| Coverage | Indian States & Union Territories |
-| Source | Ministry of Education, Government of India |
-| Type | Educational Infrastructure Data |
+| Property     | Detail                                      |
+| ------------ | ------------------------------------------- |
+| **Dataset**  | UDISE+ 2023–24                              |
+| **Coverage** | Indian states and union territories         |
+| **Source**   | Ministry of Education, Government of India  |
+| **Type**     | School infrastructure and education metrics |
 
 ---
 
 ## 🧹 Data Cleaning & Processing
 
 ### Cleaning Steps
-- Removed invalid rows
-- Standardized state names
-- Renamed columns for readability
-- Fixed inconsistent formatting
-- Converted metrics into numerical format
 
----
+* removed invalid rows
+* standardized state names
+* renamed columns for readability
+* fixed inconsistent formatting
+* converted numeric fields into usable analytical formats
 
 ### Engineered Metrics
 
-| Metric | Description |
-|---|---|
-| `infra_score` | Composite infrastructure quality score |
-| `PTR` | Student-to-Teacher Ratio |
-| `electricity_ratio` | Functional electricity availability |
-| `water_ratio` | Drinking water availability |
-| `computer_ratio` | Computer facility availability |
-| `toilet_ratio` | Functional toilet availability |
+| Metric              | Description                            |
+| ------------------- | -------------------------------------- |
+| `infra_score`       | Composite infrastructure quality score |
+| `PTR`               | Student-to-Teacher Ratio               |
+| `electricity_ratio` | Functional electricity availability    |
+| `water_ratio`       | Drinking water availability            |
+| `computer_ratio`    | Computer facility availability         |
+| `toilet_ratio`      | Functional toilet availability         |
 
 ---
 
-## 🧠 Infrastructure Scoring Methodology
+## 🧠 Scoring Methodology
 
-The dashboard uses normalized facility availability ratios to estimate infrastructure quality.
+InfraViz India uses normalized facility availability ratios to estimate infrastructure quality.
 
-### Infrastructure Score Factors
-- Electricity Access
-- Toilet Availability
-- Drinking Water Access
-- Computer Facilities
+### Score Factors
 
-Scores are categorized into:
-- 🟢 Good
-- 🟡 Average
-- 🔴 Poor
+* electricity access
+* toilet availability
+* drinking water access
+* computer facilities
+
+States are classified into:
+
+* 🟢 Good
+* 🟡 Average
+* 🔴 Poor
 
 based on percentile thresholds.
 
@@ -158,83 +102,56 @@ based on percentile thresholds.
 
 ## 🚨 Risk Classification Logic
 
-States are marked as high-risk when:
-- infrastructure quality falls below threshold levels
-- student-teacher ratio becomes critically high
+States are marked high-risk when:
 
-This helps identify states requiring urgent educational attention.
+* infrastructure quality falls below threshold levels
+* student-to-teacher ratio becomes critically high
+
+This helps surface regions that need urgent educational attention.
 
 ---
 
 ## 📊 Dashboard Sections
 
-| Section | Purpose |
-|---|---|
-| National Overview | Summary KPIs and facility distribution |
-| India Map | State-wise infrastructure quality |
-| Risk States | Critical infrastructure & PTR analysis |
-| State Deep Dive | Detailed state diagnosis |
-| Compare States | Multi-state analytical comparison |
+| Section               | Purpose                                  |
+| --------------------- | ---------------------------------------- |
+| **National Overview** | Summary KPIs and facility distribution   |
+| **India Map**         | State-wise infrastructure quality        |
+| **Risk States**       | Critical infrastructure and PTR analysis |
+| **State Deep Dive**   | Detailed state diagnosis                 |
+| **Compare States**    | Multi-state comparison view              |
 
 ---
 
 ## 📈 Key Insights
 
-### ⚡ Infrastructure inequality is highly uneven
-Several states show strong basic infrastructure coverage, while others lag significantly in sanitation, electricity, and digital facilities.
-
----
-
-### 👨‍🏫 Teacher overload remains a major issue
-Certain regions show dangerously high student-teacher ratios, indicating pressure on learning quality.
-
----
-
-### 💻 Digital infrastructure gaps are still visible
-Computer access remains inconsistent across states despite improvements in basic facilities.
-
----
-
-### 🚰 Basic facilities strongly influence overall infrastructure quality
-States with weak water and electricity access consistently perform poorly in overall infrastructure scoring.
+* Infrastructure quality is uneven across states.
+* Teacher overload remains a major issue in some regions.
+* Computer access is still inconsistent despite improvements in basic facilities.
+* Weak water and electricity access are strongly associated with poor infrastructure scores.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Tool | Purpose |
-|---|---|
-| Python | Core development |
-| Pandas | Data cleaning & analysis |
-| Streamlit | Interactive dashboard |
-| Plotly | Interactive visualizations |
-| GeoJSON | India infrastructure mapping |
+| Tool          | Purpose                    |
+| ------------- | -------------------------- |
+| **Python**    | Core development           |
+| **Pandas**    | Data cleaning and analysis |
+| **Streamlit** | Interactive dashboard      |
+| **Plotly**    | Visualizations             |
+| **GeoJSON**   | India mapping              |
 
 ---
 
 ## 📸 Dashboard Preview
 
-### 📊 National Overview
-![]()
-![Overview](images/overview.png)
+Add screenshots here once exported:
 
----
-
-### 🗺️ Infrastructure Map
-![]()
-![India Map](images/map.png)
-
----
-
-### 🔎 State Deep Dive
-![]()
-![Deep Dive](images/deepdive.png)
-
----
-
-### ⚖️ Compare States
-![]()
-![Compare](images/compare.png)
+* National Overview
+* Infrastructure Map
+* State Deep Dive
+* Compare States
 
 ---
 
@@ -242,32 +159,25 @@ States with weak water and electricity access consistently perform poorly in ove
 
 ```bash
 EduGap-India/
-│
 ├── app.py
-│
 ├── assets/
 │   ├── styles.css
 │   └── india_states.geojson
-│
 ├── data/
 │   ├── raw/
 │   └── processed/
-│
 ├── notebooks/
-│
 ├── utils/
 │   ├── config.py
 │   ├── helpers.py
 │   ├── data_loader.py
 │   └── plots.py
-│
 ├── pages/
 │   ├── overview.py
 │   ├── india_map.py
 │   ├── risk_states.py
 │   ├── state_deepdive.py
 │   └── compare_states.py
-│
 └── README.md
 ```
 
@@ -277,11 +187,8 @@ EduGap-India/
 
 ```bash
 git clone https://github.com/prasadk1628/EduGap-India.git
-
 cd EduGap-India
-
 pip install -r requirements.txt
-
 streamlit run app.py
 ```
 
@@ -289,25 +196,19 @@ streamlit run app.py
 
 ## 🔮 Future Improvements
 
-- Historical trend analysis
-- District-level analysis
-- Predictive infrastructure scoring
-- Time-series education tracking
-- Policy recommendation engine
-- Real-time education analytics integration
-
----
-
-## 📄 License
-
-Licensed under the MIT License.
+* historical trend analysis
+* district-level analysis
+* predictive infrastructure scoring
+* time-series education tracking
+* policy recommendation engine
+* real-time education analytics integration
 
 ---
 
 ## 👤 Author
 
-**Vara Prasad K**  
-Aspiring Data Analyst | Python • SQL • Streamlit
+**Vara Prasad K**
+Aspiring Data Analyst | Python · SQL · Streamlit
 
-- GitHub: https://github.com/prasadk1628
-- LinkedIn: https://www.linkedin.com/in/vara-prasad-k-4a6026230/
+GitHub: https://github.com/prasadk1628
+LinkedIn: https://www.linkedin.com/in/vara-prasad-kavali/
